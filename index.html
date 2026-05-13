@@ -238,8 +238,10 @@
       user-select: none;
       white-space: nowrap;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      left: 0;
+      right: 0;
+      text-align: center;
+      transform: translateY(-50%);
       z-index: 0;
     }
 
@@ -1126,27 +1128,43 @@
 
     .en2u-inner { max-width: 1100px; margin: 0 auto; }
 
+    /* Top row: title left, logo right */
+    .en2u-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
     .en2u-header {
       display: flex;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 20px;
+      justify-content: flex-end;
     }
-    .en2u-logo-placeholder {
-      height: 52px;
-      padding: 0 20px;
-      background: rgba(244,122,42,0.1);
-      border: 1.5px solid rgba(244,122,42,0.3);
-      border-radius: 10px;
+    .en2u-logo-img-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+    .en2u-logo-img-wrap img {
+      width: 180px;
+      height: auto;
+      max-height: 180px;
+      object-fit: contain;
+      display: block;
+    }
+    .en2u-logo-img-wrap.missing img { display: none; }
+    .en2u-logo-img-wrap.missing::after {
+      content: 'EN2U';
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: 18px;
+      font-size: 64px;
       color: var(--orange);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
     }
+
+    .en2u-title-block {}
 
     .en2u-title {
       font-family: 'Syne', sans-serif;
@@ -1162,8 +1180,8 @@
       font-weight: 600;
       font-size: clamp(18px, 2.5vw, 26px);
       color: var(--orange);
-      margin-top: 24px;
-      margin-bottom: 32px;
+      margin-top: 20px;
+      margin-bottom: 0;
     }
 
     .en2u-body {
@@ -1212,7 +1230,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
-    .en2u-card {
+    .en2u-info-card {
       background: #fff;
       border: 1px solid rgba(0,0,0,0.06);
       border-radius: 16px;
@@ -1220,7 +1238,7 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .en2u-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(244,122,42,0.12); }
+    .en2u-info-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(244,122,42,0.12); }
     .en2u-card-icon { font-size: 28px; margin-bottom: 12px; display: block; }
     .en2u-card-title {
       font-family: 'Syne', sans-serif;
@@ -1787,12 +1805,17 @@
   <!-- ═══════════════ EN2U ═══════════════ -->
   <section id="en2u">
     <div class="en2u-inner">
-      <div class="en2u-header will-reveal">
-        <div class="en2u-logo-placeholder">EN2U</div>
+      <div class="en2u-top">
+        <div class="en2u-title-block">
+          <h2 class="en2u-title will-reveal">EN2U</h2>
+          <p class="en2u-tagline will-reveal">Free English education. Real impact.</p>
+        </div>
+        <div class="en2u-header will-reveal">
+          <div class="en2u-logo-img-wrap" id="en2u-logo-wrap">
+            <img src="./en2ulogo.png" alt="EN2U" onerror="this.parentElement.classList.add('missing')" />
+          </div>
+        </div>
       </div>
-
-      <h2 class="en2u-title will-reveal">EN2U</h2>
-      <p class="en2u-tagline will-reveal">Free English education. Real impact.</p>
 
       <div class="en2u-body">
         <div>
@@ -1814,22 +1837,22 @@
         </div>
 
         <div class="en2u-card-grid">
-          <div class="en2u-card will-reveal">
+          <div class="en2u-info-card will-reveal">
             <span class="en2u-card-icon">🌍</span>
             <h4 class="en2u-card-title">Global Reach</h4>
             <p class="en2u-card-text">Students across three continents learning conversational English — for free.</p>
           </div>
-          <div class="en2u-card will-reveal">
+          <div class="en2u-info-card will-reveal">
             <span class="en2u-card-icon">📚</span>
             <h4 class="en2u-card-title">Weekly Sessions</h4>
             <p class="en2u-card-text">Consistent, structured lessons with student volunteers who show up every week.</p>
           </div>
-          <div class="en2u-card will-reveal">
+          <div class="en2u-info-card will-reveal">
             <span class="en2u-card-icon">🤝</span>
             <h4 class="en2u-card-title">Partnerships</h4>
             <p class="en2u-card-text">Working with humanitarian orgs to reach students in the most critical need.</p>
           </div>
-          <div class="en2u-card will-reveal">
+          <div class="en2u-info-card will-reveal">
             <span class="en2u-card-icon">🇯🇵</span>
             <h4 class="en2u-card-title">Japan Expansion</h4>
             <p class="en2u-card-text">Bringing free English education to students across Japan starting now.</p>
