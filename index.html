@@ -1128,29 +1128,23 @@
 
     .en2u-inner { max-width: 1100px; margin: 0 auto; }
 
-    /* Top row: title left, logo right */
     .en2u-top {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 48px;
       margin-bottom: 48px;
     }
 
-    .en2u-header {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
+    .en2u-header { display: none; } /* logo moved into right col */
+
     .en2u-logo-img-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 32px;
+      width: 100%;
     }
     .en2u-logo-img-wrap img {
-      width: 180px;
+      width: 100%;
+      max-width: 420px;
       height: auto;
-      max-height: 180px;
       object-fit: contain;
       display: block;
     }
@@ -1159,7 +1153,7 @@
       content: 'EN2U';
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: 64px;
+      font-size: 72px;
       color: var(--orange);
       letter-spacing: 0.04em;
     }
@@ -1189,6 +1183,12 @@
       grid-template-columns: 1fr 1fr;
       gap: 64px;
       align-items: start;
+    }
+
+    .en2u-right-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .en2u-desc {
@@ -1806,15 +1806,8 @@
   <section id="en2u">
     <div class="en2u-inner">
       <div class="en2u-top">
-        <div class="en2u-title-block">
-          <h2 class="en2u-title will-reveal">EN2U</h2>
-          <p class="en2u-tagline will-reveal">Free English education. Real impact.</p>
-        </div>
-        <div class="en2u-header will-reveal">
-          <div class="en2u-logo-img-wrap" id="en2u-logo-wrap">
-            <img src="./en2ulogo.png" alt="EN2U" onerror="this.parentElement.classList.add('missing')" />
-          </div>
-        </div>
+        <h2 class="en2u-title will-reveal">EN2U</h2>
+        <p class="en2u-tagline will-reveal">Free English education. Real impact.</p>
       </div>
 
       <div class="en2u-body">
@@ -1836,7 +1829,11 @@
           <a href="#contact" class="en2u-cta will-reveal">Learn More →</a>
         </div>
 
-        <div class="en2u-card-grid">
+        <div class="en2u-right-col">
+        <div class="en2u-logo-img-wrap will-reveal" id="en2u-logo-wrap">
+          <img src="./en2ulogo.png" alt="EN2U" onerror="this.parentElement.classList.add('missing')" />
+        </div>
+        <div class="en2u-card-grid" style="width:100%">
           <div class="en2u-info-card will-reveal">
             <span class="en2u-card-icon">🌍</span>
             <h4 class="en2u-card-title">Global Reach</h4>
@@ -1857,9 +1854,10 @@
             <h4 class="en2u-card-title">Japan Expansion</h4>
             <p class="en2u-card-text">Bringing free English education to students across Japan starting now.</p>
           </div>
-        </div>
-      </div>
-    </div>
+        </div><!-- end en2u-card-grid -->
+        </div><!-- end en2u-right-col -->
+      </div><!-- end en2u-body -->
+    </div><!-- end en2u-inner -->
   </section>
 
   <!-- ═══════════════ CONTACT ═══════════════ -->
