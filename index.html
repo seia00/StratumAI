@@ -166,7 +166,7 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
+      color: rgba(0,0,0,0.6);
       text-decoration: none;
       transition: color 0.25s;
       position: relative;
@@ -182,7 +182,7 @@
       transform-origin: left;
       transition: transform 0.3s ease;
     }
-    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover { color: #000; }
     .nav-links a:hover::after { transform: scaleX(1); }
 
     /* ═══════════════════════════════════════════
@@ -221,7 +221,7 @@
       justify-content: center;
       padding: 0 80px;
       overflow: hidden;
-      background: var(--charcoal);
+      background: #F8F4EE;
     }
 
     /* Ghost watermark */
@@ -232,8 +232,8 @@
       font-size: clamp(120px, 22vw, 280px);
       line-height: 1;
       letter-spacing: -0.04em;
-      color: #fff;
-      opacity: 0.03;
+      color: #000;
+      opacity: 0.04;
       pointer-events: none;
       user-select: none;
       white-space: nowrap;
@@ -255,19 +255,19 @@
     }
     .hero-orb-1 {
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(91,184,232,0.22) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(91,184,232,0.28) 0%, transparent 70%);
       left: -10%; top: -20%;
       animation: orb1 22s ease-in-out infinite alternate;
     }
     .hero-orb-2 {
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(244,122,42,0.18) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(244,122,42,0.22) 0%, transparent 70%);
       right: -5%; bottom: 5%;
       animation: orb2 17s ease-in-out infinite alternate;
     }
     .hero-orb-3 {
       width: 380px; height: 380px;
-      background: radial-gradient(circle, rgba(139,92,246,0.14) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
       right: 25%; top: 10%;
       animation: orb3 24s ease-in-out infinite alternate;
     }
@@ -280,8 +280,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(91,184,232,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(91,184,232,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
       background-size: 72px 72px;
       pointer-events: none;
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
@@ -315,19 +315,22 @@
       font-weight: 500;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--sky);
+      color: var(--orange);
       margin-bottom: 28px;
       opacity: 0;
     }
 
     #hero-logo-wrap {
-      margin-bottom: 32px;
+      margin-bottom: 8px;
       opacity: 0;
+      display: flex;
+      justify-content: center;
     }
     #hero-logo-wrap img {
-      height: 56px;
+      height: 320px;
       width: auto;
       object-fit: contain;
+      filter: drop-shadow(0 8px 32px rgba(91,184,232,0.2)) drop-shadow(0 4px 16px rgba(244,122,42,0.12));
     }
     #hero-logo-wrap.missing img { display: none; }
     #hero-logo-wrap.missing::after {
@@ -336,31 +339,41 @@
       font-weight: 800;
       font-size: 28px;
       letter-spacing: 0.12em;
-      color: #fff;
+      color: #0A0A0F;
     }
 
-    #hero-headline {
+    .hero-word-top, .hero-word-bottom {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: clamp(48px, 9vw, 110px);
-      line-height: 0.95;
+      font-size: clamp(56px, 9vw, 110px);
+      line-height: 1;
       letter-spacing: -0.02em;
-      color: #fff;
-      margin-bottom: 28px;
       opacity: 0;
     }
-    #hero-headline em {
-      font-style: normal;
+    .hero-word-top {
       background: linear-gradient(120deg, var(--sky) 0%, var(--orange) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      margin-bottom: 0;
+    }
+    .hero-word-bottom {
+      background: linear-gradient(120deg, var(--sky) 0%, var(--orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 36px;
+    }
+    .hero-word-bottom em { font-style: normal; }
+    #hero-logo-wrap {
+      margin-bottom: 0;
+      margin-top: 0;
     }
 
     .hero-sub {
       font-family: 'Inter', sans-serif;
       font-size: clamp(14px, 1.6vw, 18px);
-      color: rgba(255,255,255,0.65);
+      color: rgba(0,0,0,0.55);
       line-height: 1.75;
       max-width: 580px;
       margin: 0 auto 44px;
@@ -396,16 +409,16 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--sky);
+      color: #0A0A0F;
       background: transparent;
       padding: 15px 40px;
       border-radius: 4px;
       text-decoration: none;
       cursor: pointer;
-      border: 1.5px solid rgba(91,184,232,0.55);
+      border: 1.5px solid rgba(0,0,0,0.25);
       transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     }
-    .btn-ghost:hover { transform: translateY(-3px); background: rgba(91,184,232,0.1); border-color: var(--sky); }
+    .btn-ghost:hover { transform: translateY(-3px); background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.4); }
 
     .hero-scroll-hint {
       position: absolute;
@@ -416,7 +429,7 @@
       font-size: 10px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+      color: rgba(0,0,0,0.35);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -428,7 +441,7 @@
       display: block;
       width: 1px;
       height: 32px;
-      background: linear-gradient(180deg, rgba(91,184,232,0.7), transparent);
+      background: linear-gradient(180deg, rgba(244,122,42,0.7), transparent);
       animation: scroll-line 1.8s ease-in-out infinite;
     }
     @keyframes scroll-line {
@@ -1552,7 +1565,7 @@
   <nav id="navbar">
     <div class="nav-logo" data-target="#hero" onclick="hyperspaceNav(this)">
       <div class="nav-logo-img-wrap" id="nav-logo-wrap">
-        <img src="./Kythera.png" alt="Kythera Ventures" onerror="this.parentElement.classList.add('missing')" />
+        <img src="./kythera.png" alt="Kythera Ventures" onerror="this.parentElement.classList.add('missing')" />
       </div>
     </div>
     <ul class="nav-links">
@@ -1576,12 +1589,11 @@
     <div class="hero-watermark">KYTHERA</div>
 
     <div class="hero-content" id="hero-content">
-      <div class="hero-eyebrow" id="hero-eyebrow">Student-Founded · Japan · 2024</div>
-      <div id="hero-logo-wrap" class="missing">
-        <img src="./Kythera.png" alt="Kythera Ventures" onerror="this.parentElement.classList.add('missing')" />
+      <div class="hero-word-top">One</div>
+      <div id="hero-logo-wrap">
+        <img src="./kythera.png" alt="Kythera Ventures" onerror="this.parentElement.classList.add('missing')" />
       </div>
-      <h1 id="hero-headline">Three Ventures.<br><em>One Vision.</em></h1>
-      <p class="hero-sub">Kythera Ventures is a student-founded venture group building platforms, AI solutions, and social impact at scale — from Japan, for the world.</p>
+      <div class="hero-word-bottom">Vision<em>.</em></div>
       <div class="hero-ctas">
         <a href="#" class="btn-primary" data-target="#ventures" onclick="hyperspaceNav(this); return false;">Explore Our Ventures</a>
         <a href="#" class="btn-ghost" data-target="#about" onclick="hyperspaceNav(this); return false;">Our Story</a>
@@ -1603,28 +1615,24 @@
       </div>
 
       <div class="about-diagram will-reveal">
-        <svg viewBox="0 0 560 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Kythera Ventures structure diagram">
-          <!-- Center node -->
-          <circle cx="280" cy="110" r="44" fill="#0A0A0F" />
-          <circle cx="280" cy="110" r="44" stroke="#5BB8E8" stroke-width="1.5" stroke-dasharray="4 3" />
-          <text x="280" y="106" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="13" fill="#fff">KYTHERA</text>
-          <text x="280" y="122" text-anchor="middle" font-family="Syne, sans-serif" font-weight="500" font-size="9" fill="rgba(255,255,255,0.5)" letter-spacing="2">VENTURES</text>
-          <!-- Lines -->
-          <line x1="236" y1="110" x2="130" y2="110" stroke="rgba(139,92,246,0.5)" stroke-width="1" stroke-dasharray="4 3"/>
-          <line x1="280" y1="66" x2="280" y2="28" stroke="rgba(0,71,255,0.5)" stroke-width="1" stroke-dasharray="4 3"/>
-          <line x1="324" y1="110" x2="430" y2="110" stroke="rgba(244,122,42,0.5)" stroke-width="1" stroke-dasharray="4 3"/>
-          <!-- AXYZ node -->
-          <rect x="44" y="82" width="88" height="56" rx="8" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
-          <text x="88" y="107" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="14" fill="#8b5cf6">AXYZ</text>
-          <text x="88" y="123" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(139,92,246,0.6)" letter-spacing="1">Student Platform</text>
-          <!-- Stratum node -->
-          <rect x="216" y="0" width="128" height="56" rx="8" fill="rgba(0,71,255,0.08)" stroke="rgba(0,71,255,0.4)" stroke-width="1.5"/>
-          <text x="280" y="25" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="11" fill="#5BB8E8">STRATUM AI</text>
-          <text x="280" y="41" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(91,184,232,0.6)" letter-spacing="1">Productivity Apps</text>
-          <!-- EN2U node -->
-          <rect x="428" y="82" width="88" height="56" rx="8" fill="rgba(244,122,42,0.08)" stroke="rgba(244,122,42,0.4)" stroke-width="1.5"/>
-          <text x="472" y="107" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="14" fill="#F47A2A">EN2U</text>
-          <text x="472" y="123" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(244,122,42,0.6)" letter-spacing="1">Non-profit Education</text>
+        <svg viewBox="0 0 640 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Kythera Ventures structure diagram">
+          <!-- Connecting lines -->
+          <line x1="128" y1="130" x2="268" y2="130" stroke="rgba(139,92,246,0.4)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <line x1="320" y1="70" x2="320" y2="78" stroke="rgba(91,184,232,0.4)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <line x1="512" y1="130" x2="372" y2="130" stroke="rgba(244,122,42,0.4)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <!-- Center: Kythera (white circle, 96x96) -->
+          <circle cx="320" cy="130" r="52" fill="#FFFFFF" stroke="rgba(91,184,232,0.3)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <image href="./kythera.png" x="274" y="84" width="92" height="92" preserveAspectRatio="xMidYMid meet"/>
+          <!-- AXYZ (left, black rounded square, 96x96) -->
+          <rect x="32" y="82" width="96" height="96" rx="14" fill="#0A0A0F"/>
+          <image href="./axyz.png" x="36" y="86" width="88" height="88" preserveAspectRatio="xMidYMid meet"/>
+          <!-- Stratum (top, no logo.png — styled text badge) -->
+          <rect x="240" y="4" width="160" height="66" rx="12" fill="rgba(0,71,255,0.07)" stroke="rgba(91,184,232,0.35)" stroke-width="1.5"/>
+          <text x="320" y="30" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="13" fill="#5BB8E8">STRATUM AI</text>
+          <text x="320" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(91,184,232,0.6)">Add logo.png to folder</text>
+          <!-- EN2U (right, white circle bg, 96x96) -->
+          <circle cx="560" cy="130" r="48" fill="#FFFFFF" stroke="rgba(244,122,42,0.25)" stroke-width="1.5"/>
+          <image href="./en2ulogo.png" x="512" y="82" width="96" height="96" preserveAspectRatio="xMidYMid meet"/>
         </svg>
       </div>
 
@@ -2074,29 +2082,24 @@
     /* ── Hero entrance ── */
     const heroTl = gsap.timeline({ delay: 0.15 });
     heroTl
-      .fromTo('#hero-eyebrow',
-        { opacity: 0, y: 16 },
+      .fromTo('.hero-word-top',
+        { opacity: 0, y: -30 },
         { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }
       )
       .fromTo('#hero-logo-wrap',
-        { opacity: 0, scale: 1.08, filter: 'blur(8px)' },
+        { opacity: 0, scale: 0.92, filter: 'blur(8px)' },
         { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.9, ease: 'power3.out' },
         '-=0.3'
       )
-      .fromTo('#hero-headline',
-        { opacity: 0, y: 22 },
-        { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' },
+      .fromTo('.hero-word-bottom',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
         '-=0.4'
-      )
-      .fromTo('.hero-sub',
-        { opacity: 0, x: -24 },
-        { opacity: 1, x: 0, duration: 0.65, ease: 'power3.out' },
-        '-=0.3'
       )
       .fromTo('.hero-ctas',
         { opacity: 0, y: 18 },
         { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
-        '-=0.35'
+        '-=0.3'
       )
       .fromTo('#hero-scroll-hint',
         { opacity: 0 },
