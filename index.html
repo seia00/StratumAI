@@ -3,10 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kythera Ventures — Three Ventures. One Vision.</title>
+  <title>Brillick — Three Ventures. One Vision.</title>
+  <link rel="icon" type="image/png" href="./kythera.png" />
+  <meta name="description" content="Brillick is a student-founded venture collective building real products across technology, education, and social impact — Brillick, Stratum AI, and EN2U." />
+
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Brillick — Three Ventures. One Vision." />
+  <meta property="og:description" content="Student-founded venture collective building real products across technology, education, and social impact." />
+  <meta property="og:image" content="./kythera.png" />
+  <meta property="og:url" content="https://brillick.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brillick — Three Ventures. One Vision." />
+  <meta name="twitter:description" content="Student-founded venture collective building real products across technology, education, and social impact." />
+  <meta name="twitter:image" content="./kythera.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Tabler Icons (replaces emoji in UI) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css" />
+  <!-- Preload hero LCP image -->
+  <link rel="preload" as="image" href="./kythera.webp" />
+  <!-- No-JS fallback: ensure all content is visible even if scripts fail to load -->
+  <noscript>
+    <style>
+      .hero-eyebrow, .hero-word-top, #hero-logo-wrap, .hero-word-bottom,
+      .hero-divider, .hero-sub, .hero-ctas, #hero-scroll-hint,
+      .will-reveal, .axyz-pill, .en2u-card, .venture-card, .section-heading,
+      .manifesto-word { opacity: 1 !important; transform: none !important; filter: none !important; }
+      #cursor, #grain { display: none !important; }
+      body { cursor: auto !important; }
+    </style>
+  </noscript>
   <style>
     /* ═══════════════════════════════════════════
        RESET & BASE
@@ -34,6 +63,22 @@
       --s-yellow:    #FFE500;
       --s-cyan:      #00E5FF;
       --s-crimson:   #CC0000;
+
+      /* ── Design-system tokens (from logo: navy + gold) ── */
+      --navy-deep:   #0D1B2A;
+      --navy-mid:    #1E3A5F;
+      --gold:        #C8A96E;
+      --parchment:   #F0EBE1;
+      --slate:       #A0AEC0;
+      --text-body:   #4A5568;
+      --text-muted:  #718096;
+      --space-xs:    4px;
+      --space-sm:    8px;
+      --space-md:    16px;
+      --space-lg:    24px;
+      --space-xl:    40px;
+      --space-2xl:   80px;
+      --space-3xl:   120px;
     }
 
     html { scroll-behavior: smooth; }
@@ -53,26 +98,25 @@
       position: fixed;
       top: 0; left: 0;
       width: 20px; height: 20px;
-      border: 1.5px solid var(--sky);
+      border: 1.5px solid var(--gold);
       pointer-events: none;
       z-index: 99999;
       transform: translate(-50%, -50%);
       transition: transform 0.15s ease, border-color 0.2s ease;
-      mix-blend-mode: difference;
     }
     #cursor::before, #cursor::after {
       content: '';
       position: absolute;
-      background: var(--sky);
+      background: var(--gold);
       transition: background 0.2s ease;
     }
     #cursor::before { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
     #cursor::after  { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
     #cursor.hover {
       transform: translate(-50%, -50%) rotate(45deg) scale(1.5);
-      border-color: var(--orange);
+      border-color: #9a7a35;
     }
-    #cursor.hover::before, #cursor.hover::after { background: var(--orange); }
+    #cursor.hover::before, #cursor.hover::after { background: #9a7a35; }
 
     /* ═══════════════════════════════════════════
        GRAIN OVERLAY
@@ -94,7 +138,7 @@
       pointer-events: none;
       z-index: 9997;
       opacity: 0;
-      background: radial-gradient(circle at center, #fff 0%, var(--sky) 35%, transparent 70%);
+      background: radial-gradient(circle at center, #fff 0%, var(--gold) 35%, transparent 70%);
       transform-origin: center center;
     }
 
@@ -124,7 +168,7 @@
     }
     #navbar.compressed .nav-links a { color: rgba(0,0,0,0.7); }
     #navbar.compressed .nav-links a:hover { color: #000; }
-    #navbar.compressed .nav-links a::after { background: linear-gradient(90deg, var(--orange), var(--sky)); }
+    #navbar.compressed .nav-links a::after { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 
     .nav-logo {
       display: flex;
@@ -147,8 +191,8 @@
     .nav-logo-img-wrap.missing img { display: none; }
     .nav-logo-img-wrap.missing::after {
       content: 'KV';
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
       font-size: 22px;
       color: #fff;
       letter-spacing: 0.05em;
@@ -177,7 +221,7 @@
       position: absolute;
       bottom: -4px; left: 0; right: 0;
       height: 1px;
-      background: linear-gradient(90deg, var(--sky), var(--orange));
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s ease;
@@ -198,13 +242,13 @@
       margin-bottom: 12px;
     }
     .section-heading {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(48px, 8vw, 100px);
-      line-height: 0.95;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(46px, 7vw, 92px);
+      line-height: 1.02;
       color: #fff;
       margin-bottom: 48px;
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
     }
     .dark-label { color: rgba(0,0,0,0.45); }
     .dark-heading { color: #0A0A0F; }
@@ -227,11 +271,11 @@
     /* Ghost watermark */
     .hero-watermark {
       position: absolute;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
       font-size: clamp(120px, 22vw, 280px);
       line-height: 1;
-      letter-spacing: -0.04em;
+      letter-spacing: 0.01em;
       color: #000;
       opacity: 0.04;
       pointer-events: none;
@@ -255,19 +299,19 @@
     }
     .hero-orb-1 {
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(91,184,232,0.28) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(200,169,110,0.30) 0%, transparent 70%);
       left: -10%; top: -20%;
       animation: orb1 22s ease-in-out infinite alternate;
     }
     .hero-orb-2 {
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(244,122,42,0.22) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(30,58,95,0.16) 0%, transparent 70%);
       right: -5%; bottom: 5%;
       animation: orb2 17s ease-in-out infinite alternate;
     }
     .hero-orb-3 {
       width: 380px; height: 380px;
-      background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(154,122,53,0.12) 0%, transparent 70%);
       right: 25%; top: 10%;
       animation: orb3 24s ease-in-out infinite alternate;
     }
@@ -315,8 +359,17 @@
       font-weight: 500;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 28px;
+      color: #b08d4f;
+      margin-bottom: 24px;
+      opacity: 0;
+    }
+
+    /* Gold divider rule (from logo accent) */
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 18px auto 26px;
       opacity: 0;
     }
 
@@ -327,44 +380,40 @@
       justify-content: center;
     }
     #hero-logo-wrap img {
-      height: 320px;
+      height: clamp(120px, 20vw, 210px);
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 8px 32px rgba(91,184,232,0.2)) drop-shadow(0 4px 16px rgba(244,122,42,0.12));
+      filter: drop-shadow(0 8px 32px rgba(200,169,110,0.28)) drop-shadow(0 4px 16px rgba(13,27,42,0.12));
     }
     #hero-logo-wrap.missing img { display: none; }
     #hero-logo-wrap.missing::after {
       content: 'KYTHERA VENTURES';
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
       font-size: 28px;
       letter-spacing: 0.12em;
       color: #0A0A0F;
     }
 
     .hero-word-top, .hero-word-bottom {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(56px, 9vw, 110px);
-      line-height: 1;
-      letter-spacing: -0.02em;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(58px, 9vw, 116px);
+      line-height: 1.02;
+      letter-spacing: 0.005em;
       opacity: 0;
     }
     .hero-word-top {
-      background: linear-gradient(120deg, var(--sky) 0%, var(--orange) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--navy-deep);
       margin-bottom: 0;
     }
     .hero-word-bottom {
-      background: linear-gradient(120deg, var(--sky) 0%, var(--orange) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #9a7a35;
+      font-style: italic;
+      font-weight: 500;
       margin-bottom: 36px;
     }
-    .hero-word-bottom em { font-style: normal; }
+    .hero-word-bottom em { font-style: italic; }
     #hero-logo-wrap {
       margin-bottom: 0;
       margin-top: 0;
@@ -394,15 +443,15 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: #fff;
-      background: var(--orange);
+      background: var(--navy-deep);
       padding: 16px 40px;
-      border-radius: 4px;
+      border-radius: 0;
       text-decoration: none;
       cursor: pointer;
-      border: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      border: 1.5px solid var(--navy-deep);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(244,122,42,0.45); background: #e06520; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(13,27,42,0.35); border-color: var(--gold); }
     .btn-ghost {
       font-family: 'Inter', sans-serif;
       font-size: 13px;
@@ -412,13 +461,13 @@
       color: #0A0A0F;
       background: transparent;
       padding: 15px 40px;
-      border-radius: 4px;
+      border-radius: 0;
       text-decoration: none;
       cursor: pointer;
-      border: 1.5px solid rgba(0,0,0,0.25);
-      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+      border: 1.5px solid var(--gold);
+      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     }
-    .btn-ghost:hover { transform: translateY(-3px); background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.4); }
+    .btn-ghost:hover { transform: translateY(-3px); background: var(--gold); border-color: var(--gold); color: var(--navy-deep); }
 
     .hero-scroll-hint {
       position: absolute;
@@ -441,7 +490,7 @@
       display: block;
       width: 1px;
       height: 32px;
-      background: linear-gradient(180deg, rgba(244,122,42,0.7), transparent);
+      background: linear-gradient(180deg, var(--gold), transparent);
       animation: scroll-line 1.8s ease-in-out infinite;
     }
     @keyframes scroll-line {
@@ -463,7 +512,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--sky), var(--orange));
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .about-inner {
@@ -488,12 +537,44 @@
     /* SVG diagram */
     .about-diagram {
       margin-bottom: 80px;
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .about-diagram svg {
-      max-width: 560px;
-      width: 100%;
+    .about-box {
+      border: 1px solid var(--gold);
+      padding: 36px 24px 32px;
+      text-align: center;
+      position: relative;
+    }
+    .about-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+    }
+    .about-box-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 14px;
+    }
+    .about-box-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--navy-deep);
+      margin: 0;
+      letter-spacing: 0.02em;
     }
 
     /* Stats grid */
@@ -509,13 +590,21 @@
       text-align: center;
     }
     .about-stat-num {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(40px, 5vw, 64px);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(44px, 5vw, 68px);
       line-height: 1;
-      color: var(--orange);
+      color: var(--navy-deep);
       display: block;
       margin-bottom: 10px;
+    }
+    .about-stat-num::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--gold);
+      margin: 12px auto 0;
     }
     .about-stat-lbl {
       font-size: 12px;
@@ -539,7 +628,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--sky), var(--purple), var(--orange));
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .ventures-inner { max-width: 1200px; margin: 0 auto; }
@@ -568,9 +657,9 @@
       height: 3px;
       transition: opacity 0.4s ease;
     }
-    .venture-card.axyz-card::before   { background: linear-gradient(90deg, var(--purple), #c084fc); }
-    .venture-card.strat-card::before  { background: linear-gradient(90deg, var(--s-blue), var(--s-cyan)); }
-    .venture-card.en2u-card::before   { background: linear-gradient(90deg, var(--orange), var(--warm-amber)); }
+    .venture-card.axyz-card::before   { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .venture-card.strat-card::before  { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .venture-card.en2u-card::before   { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 
     .venture-card:hover {
       transform: translateY(-10px);
@@ -595,10 +684,10 @@
     .en2u-card .vc-tag   { color: var(--orange); background: rgba(244,122,42,0.1); }
 
     .vc-name {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
       font-size: clamp(28px, 3.5vw, 40px);
-      letter-spacing: -0.01em;
+      letter-spacing: 0.01em;
       color: #fff;
       margin-bottom: 16px;
       line-height: 1;
@@ -699,25 +788,25 @@
     .axyz-logo-wrap.missing img { display: none; }
     .axyz-logo-wrap.missing::after {
       content: 'AXYZ';
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
       font-size: 28px;
       color: var(--purple);
       letter-spacing: 0.08em;
     }
 
     .axyz-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(64px, 12vw, 140px);
-      line-height: 0.9;
-      letter-spacing: -0.03em;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(64px, 12vw, 132px);
+      line-height: 0.98;
+      letter-spacing: 0.01em;
       color: #fff;
-      text-shadow: 0 0 80px rgba(139,92,246,0.6), 0 0 160px rgba(139,92,246,0.25);
+      text-shadow: 0 2px 50px rgba(139,92,246,0.3);
     }
 
     .axyz-tagline {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
       font-size: clamp(16px, 2.2vw, 24px);
       color: rgba(255,255,255,0.8);
@@ -857,7 +946,7 @@
     }
     .axyz-mockup-img.missing-demo::after {
       content: 'AXYZ Platform Preview';
-      font-family: 'Syne', sans-serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 14px;
       font-weight: 600;
       color: rgba(139,92,246,0.6);
@@ -904,15 +993,12 @@
     }
 
     .stratum-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(40px, 7vw, 80px);
-      line-height: 0.95;
-      letter-spacing: -0.01em;
-      background: linear-gradient(120deg, var(--s-purple) 0%, var(--s-blue) 40%, var(--s-cyan) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(42px, 7vw, 80px);
+      line-height: 1.02;
+      letter-spacing: 0.005em;
+      color: var(--parchment);
       margin-bottom: 8px;
     }
 
@@ -987,22 +1073,15 @@
       font-family: 'Inter', monospace;
     }
     .s-card-name {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(24px, 3vw, 36px);
-      letter-spacing: -0.01em;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(26px, 3vw, 38px);
+      letter-spacing: 0.005em;
       margin-bottom: 10px;
-      line-height: 1;
+      line-height: 1.05;
+      color: var(--parchment);
     }
-    .s-card-1 .s-card-name {
-      background: linear-gradient(135deg, #fff 0%, var(--s-cyan) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .s-card-2 .s-card-name {
-      background: linear-gradient(135deg, #fff 0%, var(--s-purple) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .s-card-3 .s-card-name { color: rgba(255,255,255,0.35); }
+    .s-card-3 .s-card-name { color: rgba(255,255,255,0.4); }
 
     .s-card-desc {
       font-size: 13px;
@@ -1136,7 +1215,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--orange), var(--warm-amber));
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .en2u-inner { max-width: 1100px; margin: 0 auto; }
@@ -1163,8 +1242,8 @@
     .en2u-logo-img-wrap.missing img { display: none; }
     .en2u-logo-img-wrap.missing::after {
       content: 'EN2U';
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
       font-size: 56px;
       color: var(--orange);
       letter-spacing: 0.04em;
@@ -1173,17 +1252,17 @@
     .en2u-title-block { flex: 1; }
 
     .en2u-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
       font-size: clamp(48px, 8vw, 88px);
       line-height: 0.95;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.01em;
       color: #0A0A0F;
       margin-bottom: 12px;
     }
 
     .en2u-tagline {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
       font-size: clamp(16px, 2vw, 22px);
       color: var(--orange);
@@ -1253,7 +1332,7 @@
     .en2u-info-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(244,122,42,0.12); }
     .en2u-card-icon { font-size: 28px; margin-bottom: 12px; display: block; }
     .en2u-card-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 700;
       font-size: 16px;
       color: #0A0A0F;
@@ -1296,14 +1375,14 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--sky), var(--orange));
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
     #contact::after {
       content: '';
       position: absolute;
       bottom: 0; right: 0;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(91,184,232,0.07) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -1398,7 +1477,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--sky), var(--orange), transparent);
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .footer-inner {
@@ -1407,10 +1486,10 @@
     }
 
     .footer-wordmark {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
       font-size: clamp(32px, 6vw, 72px);
-      letter-spacing: -0.01em;
+      letter-spacing: 0.06em;
       color: rgba(255,255,255,0.08);
       line-height: 1;
       margin-bottom: 40px;
@@ -1457,7 +1536,7 @@
     }
     .footer-brand-logo:hover { opacity: 1; }
     .footer-brand-tag {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 700;
       font-size: 13px;
       color: rgba(255,255,255,0.4);
@@ -1513,7 +1592,11 @@
       background: transparent;
       border: none;
       cursor: pointer;
-      padding: 8px;
+      padding: 10px;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
       flex-direction: column;
       gap: 5px;
       z-index: 1001;
@@ -1567,7 +1650,7 @@
       .contact-row { grid-template-columns: 1fr; }
       footer { padding: 40px 24px 28px; }
       .footer-mid { flex-direction: column; align-items: flex-start; }
-      .about-diagram svg { max-width: 320px; }
+      .about-diagram { grid-template-columns: 1fr; gap: 16px; }
     }
     @media (max-width: 480px) {
       .about-stats { grid-template-columns: 1fr; }
@@ -1583,15 +1666,98 @@
       will-change: transform, opacity;
       opacity: 0;
     }
+
+    /* ═══════════════════════════════════════════
+       ICONS (Tabler — replaces emoji)
+    ═══════════════════════════════════════════ */
+    .axyz-pill-icon.ti {
+      font-size: 20px;
+      display: block;
+      margin-bottom: 6px;
+      color: var(--purple);
+    }
+    .en2u-card-icon.ti {
+      font-size: 28px;
+      display: block;
+      color: var(--orange);
+    }
+
+    /* ═══════════════════════════════════════════
+       CONTACT FORM STATES
+    ═══════════════════════════════════════════ */
+    .contact-submit[disabled] { opacity: 0.6; cursor: progress; }
+    .contact-status {
+      margin-top: 18px;
+      font-size: 14px;
+      line-height: 1.6;
+      display: none;
+    }
+    .contact-status.error { display: block; color: #ff6b6b; }
+    .contact-status.success { display: block; color: var(--sky); }
+    .contact-form.sent { display: none; }
+    .contact-success-panel {
+      display: none;
+      text-align: center;
+      padding: 48px 32px;
+      border: 1px solid rgba(91,184,232,0.3);
+      border-radius: 8px;
+      background: rgba(91,184,232,0.05);
+    }
+    .contact-success-panel.show { display: block; }
+    .contact-success-panel h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .contact-success-panel p { color: rgba(255,255,255,0.65); font-size: 15px; }
+    .contact-direct {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+    }
+    .contact-direct a { color: var(--sky); text-decoration: none; }
+    .contact-direct a:hover { text-decoration: underline; }
+
+    /* ═══════════════════════════════════════════
+       ACCESSIBILITY
+    ═══════════════════════════════════════════ */
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .hero-orb, .hero-grid, .hero-watermark { animation: none !important; }
+      #cursor { display: none; }
+      body { cursor: auto !important; }
+    }
   </style>
 </head>
 <body>
 
   <!-- CURSOR -->
-  <div id="cursor"></div>
+  <div id="cursor" aria-hidden="true"></div>
 
   <!-- GRAIN -->
-  <svg id="grain" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <svg id="grain" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
     <filter id="noise-filter">
       <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
       <feColorMatrix type="saturate" values="0" />
@@ -1606,19 +1772,19 @@
   <nav id="navbar">
     <div class="nav-logo" data-target="#hero" onclick="hyperspaceNav(this)">
       <div class="nav-logo-img-wrap" id="nav-logo-wrap">
-        <img src="./kythera.png" alt="Kythera Ventures" onerror="this.parentElement.classList.add('missing')" />
+        <img src="./kythera.webp" alt="Brillick" onerror="this.parentElement.classList.add('missing')" />
       </div>
     </div>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#" data-target="#hero" onclick="hyperspaceNav(this); return false;">Home</a></li>
-      <li><a href="#" data-target="#ventures" onclick="hyperspaceNav(this); return false;">Ventures</a></li>
-      <li><a href="#" data-target="#stratum" onclick="hyperspaceNav(this); return false;">Stratum AI</a></li>
-      <li><a href="#" data-target="#axyz" onclick="hyperspaceNav(this); return false;">AXYZ</a></li>
-      <li><a href="#" data-target="#en2u" onclick="hyperspaceNav(this); return false;">EN2U</a></li>
-      <li><a href="#" data-target="#contact" onclick="hyperspaceNav(this); return false;">Contact</a></li>
+      <li><a href="#hero" data-target="#hero" onclick="hyperspaceNav(this); return false;">Home</a></li>
+      <li><a href="#ventures" data-target="#ventures" onclick="hyperspaceNav(this); return false;">Ventures</a></li>
+      <li><a href="#stratum" data-target="#stratum" onclick="hyperspaceNav(this); return false;">Stratum AI</a></li>
+      <li><a href="#axyz" data-target="#axyz" onclick="hyperspaceNav(this); return false;">AXYZ</a></li>
+      <li><a href="#en2u" data-target="#en2u" onclick="hyperspaceNav(this); return false;">EN2U</a></li>
+      <li><a href="#contact" data-target="#contact" onclick="hyperspaceNav(this); return false;">Contact</a></li>
     </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" onclick="toggleMobileNav()">
-      <span></span><span></span><span></span>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleMobileNav()">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
   </nav>
 
@@ -1633,14 +1799,17 @@
     <div class="hero-watermark">KYTHERA</div>
 
     <div class="hero-content" id="hero-content">
-      <div class="hero-word-top">One</div>
+      <p class="hero-eyebrow">Student-Founded Venture Collective</p>
+      <h1 class="hero-word-top">One</h1>
       <div id="hero-logo-wrap">
-        <img src="./kythera.png" alt="Kythera Ventures" onerror="this.parentElement.classList.add('missing')" />
+        <img src="./kythera.webp" alt="Brillick" onerror="this.parentElement.classList.add('missing')" />
       </div>
       <div class="hero-word-bottom">Vision<em>.</em></div>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">Three ventures. One mission. Built by students — <strong>we don't wait, we ship.</strong></p>
       <div class="hero-ctas">
-        <a href="#" class="btn-primary" data-target="#ventures" onclick="hyperspaceNav(this); return false;">Explore Our Ventures</a>
-        <a href="#" class="btn-ghost" data-target="#about" onclick="hyperspaceNav(this); return false;">Our Story</a>
+        <a href="#ventures" class="btn-primary" data-target="#ventures" onclick="hyperspaceNav(this); return false;">Explore Our Ventures</a>
+        <a href="#about" class="btn-ghost" data-target="#about" onclick="hyperspaceNav(this); return false;">Our Story</a>
       </div>
     </div>
 
@@ -1653,31 +1822,24 @@
       <div class="about-copy will-reveal">
         <p class="section-label dark-label">// who we are</p>
         <h2 class="section-heading dark-heading">Built by<br>Students.</h2>
-        <p>Kythera Ventures is a collective of student founders building real products that solve real problems — across technology, education, and social impact.</p>
+        <p>Brillick is a collective of student founders building real products that solve real problems — across technology, education, and social impact.</p>
         <p>Founded in Japan. Thinking globally. <strong>We don't wait. We ship.</strong></p>
         <p>Three ventures. Each independent. All united by one conviction: the best time to build is now.</p>
       </div>
 
       <div class="about-diagram will-reveal">
-        <svg viewBox="0 0 640 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Kythera Ventures structure diagram">
-          <!-- Connecting lines -->
-          <line x1="128" y1="130" x2="268" y2="130" stroke="rgba(139,92,246,0.4)" stroke-width="1.5" stroke-dasharray="5 4"/>
-          <line x1="320" y1="70" x2="320" y2="78" stroke="rgba(91,184,232,0.4)" stroke-width="1.5" stroke-dasharray="5 4"/>
-          <line x1="512" y1="130" x2="372" y2="130" stroke="rgba(244,122,42,0.4)" stroke-width="1.5" stroke-dasharray="5 4"/>
-          <!-- Center: Kythera (white circle, 96x96) -->
-          <circle cx="320" cy="130" r="52" fill="#FFFFFF" stroke="rgba(91,184,232,0.3)" stroke-width="1.5" stroke-dasharray="4 3"/>
-          <image href="./kythera.png" x="274" y="84" width="92" height="92" preserveAspectRatio="xMidYMid meet"/>
-          <!-- AXYZ (left, black rounded square, 96x96) -->
-          <rect x="32" y="82" width="96" height="96" rx="14" fill="#0A0A0F"/>
-          <image href="./axyz.png" x="36" y="86" width="88" height="88" preserveAspectRatio="xMidYMid meet"/>
-          <!-- Stratum (top, styled wordmark) -->
-          <rect x="240" y="4" width="160" height="66" rx="12" fill="rgba(0,71,255,0.07)" stroke="rgba(91,184,232,0.35)" stroke-width="1.5"/>
-          <text x="320" y="32" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="15" fill="#5BB8E8">STRATUM AI</text>
-          <text x="320" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(91,184,232,0.65)" letter-spacing="1.5">PRODUCTIVITY APPS</text>
-          <!-- EN2U (right, white circle bg, 96x96) -->
-          <circle cx="560" cy="130" r="48" fill="#FFFFFF" stroke="rgba(244,122,42,0.25)" stroke-width="1.5"/>
-          <image href="./en2ulogo.png" x="512" y="82" width="96" height="96" preserveAspectRatio="xMidYMid meet"/>
-        </svg>
+        <div class="about-box">
+          <p class="about-box-label">Student Platform</p>
+          <h3 class="about-box-name">Brillick</h3>
+        </div>
+        <div class="about-box">
+          <p class="about-box-label">Productivity AI</p>
+          <h3 class="about-box-name">Stratum AI</h3>
+        </div>
+        <div class="about-box">
+          <p class="about-box-label">Education</p>
+          <h3 class="about-box-name">EN2U</h3>
+        </div>
       </div>
 
       <div class="about-stats">
@@ -1690,8 +1852,8 @@
           <span class="about-stat-lbl">Day to 100+ AXYZ Members</span>
         </div>
         <div class="about-stat will-reveal">
-          <span class="about-stat-num" data-count="1" data-prefix="$" data-suffix="M">0</span>
-          <span class="about-stat-lbl">Pre-seed Funding Incoming</span>
+          <span class="about-stat-num" data-count="3" data-suffix="">0</span>
+          <span class="about-stat-lbl">Countries Reached</span>
         </div>
         <div class="about-stat will-reveal">
           <span class="about-stat-num" data-count="3" data-suffix="">0</span>
@@ -1740,13 +1902,13 @@
     <div class="axyz-inner">
       <div class="axyz-header">
         <div class="axyz-logo-wrap" id="axyz-logo-wrap">
-          <img src="./axyz.png" alt="AXYZ" onerror="this.parentElement.classList.add('missing')" />
+          <img src="./axyz.webp" alt="AXYZ" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('missing')" />
         </div>
       </div>
 
       <h2 class="axyz-title will-reveal">AXYZ</h2>
       <p class="axyz-tagline will-reveal">The new standard for student organizations in Japan.</p>
-      <p class="axyz-stats will-reveal">100+ members &nbsp;·&nbsp; Day 1 &nbsp;·&nbsp; $1M pre-seed incoming</p>
+      <p class="axyz-stats will-reveal">100+ members &nbsp;·&nbsp; Launched Day 1 &nbsp;·&nbsp; Built in Japan</p>
       <p class="axyz-desc will-reveal">AXYZ is a student-founded platform built in Japan — the all-in-one hub for internationally-minded students and young founders. Think LinkedIn meets a discovery platform meets an opportunity board, built specifically for ambitious students who want to connect globally.</p>
 
       <div class="axyz-body">
@@ -1754,27 +1916,27 @@
           <p class="axyz-products-label">What's inside</p>
           <div class="axyz-products-grid">
             <div class="axyz-pill will-reveal">
-              <span class="axyz-pill-icon">📋</span>
+              <i class="ti ti-users axyz-pill-icon" aria-hidden="true"></i>
               Directory
             </div>
             <div class="axyz-pill will-reveal">
-              <span class="axyz-pill-icon">🤝</span>
+              <i class="ti ti-arrows-exchange axyz-pill-icon" aria-hidden="true"></i>
               AXYZ Match
             </div>
             <div class="axyz-pill will-reveal">
-              <span class="axyz-pill-icon">🚀</span>
+              <i class="ti ti-briefcase axyz-pill-icon" aria-hidden="true"></i>
               Opportunities
             </div>
             <div class="axyz-pill will-reveal">
-              <span class="axyz-pill-icon">💡</span>
+              <i class="ti ti-rocket axyz-pill-icon" aria-hidden="true"></i>
               Launch Pad
             </div>
             <div class="axyz-pill will-reveal">
-              <span class="axyz-pill-icon">🏢</span>
+              <i class="ti ti-building axyz-pill-icon" aria-hidden="true"></i>
               Ventures
             </div>
             <div class="axyz-pill will-reveal">
-              <span class="axyz-pill-icon">🌐</span>
+              <i class="ti ti-world axyz-pill-icon" aria-hidden="true"></i>
               Network
             </div>
           </div>
@@ -1792,7 +1954,7 @@
               <span class="axyz-bar-title">axisjapan.vercel.app</span>
             </div>
             <div class="axyz-mockup-img" id="axyz-demo-wrap">
-              <img src="./axyzdemo.png" alt="AXYZ Platform Demo" onerror="this.parentElement.classList.add('missing-demo')" />
+              <img src="./axyzdemo.webp" alt="AXYZ platform demo — student directory and discovery board" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('missing-demo')" />
             </div>
           </div>
         </div>
@@ -1805,7 +1967,7 @@
     <div class="stratum-inner">
       <h2 class="stratum-title will-reveal">Stratum AI Solutions</h2>
       <p class="stratum-tagline will-reveal">Productivity, enforced. AI-powered tools that transform how you work and live.</p>
-      <p class="stratum-desc will-reveal">Stratum AI is the digital solutions arm of Kythera Ventures — building cutting-edge productivity applications powered by state-of-the-art AI.</p>
+      <p class="stratum-desc will-reveal">Stratum AI is the digital solutions arm of Brillick — building cutting-edge productivity applications powered by state-of-the-art AI.</p>
 
       <div class="stratum-grid">
 
@@ -1814,7 +1976,7 @@
           <h3 class="s-card-name">BackGain AI</h3>
           <p class="s-card-desc">Your body deserves better. BackGain AI monitors your posture in real time using MediaPipe and corrects it before damage is done.</p>
           <div class="s-card-screenshot">
-            <img src="./backgainai-screenshot.png" alt="BackGain AI screenshot" />
+            <img src="./backgainai-screenshot.webp" alt="BackGain AI posture-monitoring app screenshot" loading="lazy" decoding="async" />
           </div>
           <a href="https://backgain.vercel.app/" class="s-card-link" target="_blank" rel="noopener noreferrer">Visit →</a>
         </div>
@@ -1824,7 +1986,7 @@
           <h3 class="s-card-name">SuperCards</h3>
           <p class="s-card-desc">Study smarter. SuperCards uses GPT-4o to generate intelligent flashcards from anything you point your camera at.</p>
           <div class="s-card-screenshot">
-            <img src="./supercards-screenshot.png" alt="SuperCards screenshot" />
+            <img src="./supercards-screenshot.webp" alt="SuperCards AI flashcard app screenshot" loading="lazy" decoding="async" />
           </div>
           <a href="https://supercards123.vercel.app/" class="s-card-link" target="_blank" rel="noopener noreferrer">Visit →</a>
         </div>
@@ -1834,17 +1996,12 @@
           <span class="s-card-number">03</span>
           <h3 class="s-card-name">RedlineAI</h3>
           <p class="s-card-desc">Stay locked in. RedlineAI detects when you're off task and pulls you back — automatically. No escape.</p>
-          <div class="activating-soon">
-            <div class="pulse-dot"></div>
-            <span class="activating-text">Activating Soon</span>
-          </div>
-          <span class="s-card-link-disabled">Coming Soon</span>
         </div>
 
       </div>
 
       <div class="stratum-cta-wrap will-reveal">
-        <a href="#" class="stratum-site-link">Visit Stratum AI →</a>
+        <a href="#contact" class="stratum-site-link" data-target="#contact" onclick="hyperspaceNav(this); return false;">Work with Stratum AI →</a>
       </div>
     </div>
   </section>
@@ -1854,7 +2011,7 @@
     <div class="en2u-inner">
       <div class="en2u-header-row">
         <div class="en2u-logo-img-wrap will-reveal" id="en2u-logo-wrap">
-          <img src="./en2ulogo.png" alt="EN2U" onerror="this.parentElement.classList.add('missing')" />
+          <img src="./en2ulogo.webp" alt="EN2U" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('missing')" />
         </div>
         <div class="en2u-title-block">
           <h2 class="en2u-title will-reveal">EN2U</h2>
@@ -1883,22 +2040,22 @@
 
         <div class="en2u-card-grid">
           <div class="en2u-info-card will-reveal">
-            <span class="en2u-card-icon">🌍</span>
+            <i class="ti ti-world en2u-card-icon" aria-hidden="true"></i>
             <h4 class="en2u-card-title">Global Reach</h4>
             <p class="en2u-card-text">Students across three continents learning conversational English — for free.</p>
           </div>
           <div class="en2u-info-card will-reveal">
-            <span class="en2u-card-icon">📚</span>
+            <i class="ti ti-book en2u-card-icon" aria-hidden="true"></i>
             <h4 class="en2u-card-title">Weekly Sessions</h4>
             <p class="en2u-card-text">Consistent, structured lessons with student volunteers who show up every week.</p>
           </div>
           <div class="en2u-info-card will-reveal">
-            <span class="en2u-card-icon">🤝</span>
+            <i class="ti ti-heart-handshake en2u-card-icon" aria-hidden="true"></i>
             <h4 class="en2u-card-title">Partnerships</h4>
             <p class="en2u-card-text">Working with humanitarian orgs to reach students in the most critical need.</p>
           </div>
           <div class="en2u-info-card will-reveal">
-            <span class="en2u-card-icon">🇯🇵</span>
+            <i class="ti ti-map-pin en2u-card-icon" aria-hidden="true"></i>
             <h4 class="en2u-card-title">Japan Expansion</h4>
             <p class="en2u-card-text">Bringing free English education to students across Japan starting now.</p>
           </div>
@@ -1914,23 +2071,35 @@
       <h2 class="section-heading will-reveal" style="text-align:center; margin-bottom: 20px;">Want to work<br>with us?</h2>
       <p class="contact-sub will-reveal">Whether you're a partner, investor, sponsor, or student — reach out. We'd love to hear from you.</p>
 
-      <form class="contact-form will-reveal" action="" onsubmit="return false;">
+      <!-- Replace YOUR_FORM_ID with your real Formspree endpoint to enable AJAX submissions.
+           Until then, the form falls back to opening a pre-filled email. -->
+      <form id="contact-form" class="contact-form will-reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="contact-row">
           <div class="contact-field">
             <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" placeholder="Your name" autocomplete="name" />
+            <input type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name" required aria-required="true" />
           </div>
           <div class="contact-field">
             <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" placeholder="your@email.com" autocomplete="email" />
+            <input type="email" id="cf-email" name="email" placeholder="your@email.com" autocomplete="email" required aria-required="true" />
           </div>
         </div>
         <div class="contact-field">
           <label for="cf-msg">Message</label>
-          <textarea id="cf-msg" placeholder="Tell us what's on your mind..."></textarea>
+          <textarea id="cf-msg" name="message" placeholder="Tell us what's on your mind..." required aria-required="true"></textarea>
         </div>
         <button type="submit" class="contact-submit">Send Message</button>
+        <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
       </form>
+
+      <div id="contact-success" class="contact-success-panel" role="status" aria-live="polite">
+        <h3>Message received.</h3>
+        <p>Thanks for reaching out — we'll be in touch soon.</p>
+      </div>
+
+      <p class="contact-direct">
+        Prefer email? Write to <a href="mailto:contact@brillick.com">contact@brillick.com</a>
+      </p>
     </div>
   </section>
 
@@ -1941,11 +2110,11 @@
 
       <div class="footer-mid">
         <ul class="footer-nav">
-          <li><a href="#" data-target="#about" onclick="hyperspaceNav(this); return false;">About</a></li>
-          <li><a href="#" data-target="#axyz" onclick="hyperspaceNav(this); return false;">AXYZ</a></li>
-          <li><a href="#" data-target="#stratum" onclick="hyperspaceNav(this); return false;">Stratum AI</a></li>
-          <li><a href="#" data-target="#en2u" onclick="hyperspaceNav(this); return false;">EN2U</a></li>
-          <li><a href="#" data-target="#contact" onclick="hyperspaceNav(this); return false;">Contact</a></li>
+          <li><a href="#about" data-target="#about" onclick="hyperspaceNav(this); return false;">About</a></li>
+          <li><a href="#axyz" data-target="#axyz" onclick="hyperspaceNav(this); return false;">AXYZ</a></li>
+          <li><a href="#stratum" data-target="#stratum" onclick="hyperspaceNav(this); return false;">Stratum AI</a></li>
+          <li><a href="#en2u" data-target="#en2u" onclick="hyperspaceNav(this); return false;">EN2U</a></li>
+          <li><a href="#contact" data-target="#contact" onclick="hyperspaceNav(this); return false;">Contact</a></li>
         </ul>
 
         <div class="footer-logos">
@@ -1958,8 +2127,8 @@
       </div>
 
       <div class="footer-bottom">
-        <span class="footer-copy">© 2026 Kythera Ventures. Built by students, for the world.</span>
-        <a class="footer-email" href="mailto:contact@kytheraventures.com">contact@kytheraventures.com</a>
+        <span class="footer-copy">© 2026 Brillick. Built by students, for the world.</span>
+        <a class="footer-email" href="mailto:contact@brillick.com">contact@brillick.com</a>
       </div>
     </div>
   </footer>
@@ -2002,7 +2171,10 @@
       const navToggle = document.getElementById('nav-toggle');
       if (navLinks && navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
-        if (navToggle) navToggle.classList.remove('open');
+        if (navToggle) {
+          navToggle.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
       }
 
       const tl = gsap.timeline();
@@ -2015,8 +2187,9 @@
     function toggleMobileNav() {
       const navLinks = document.getElementById('nav-links');
       const navToggle = document.getElementById('nav-toggle');
-      navLinks.classList.toggle('open');
+      const isOpen = navLinks.classList.toggle('open');
       navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
 
     /* ─────────────────────────────────────
@@ -2042,10 +2215,10 @@
       window.addEventListener('resize', resize);
 
       const COLORS = [
-        'rgba(91,184,232,',
-        'rgba(244,122,42,',
-        'rgba(139,92,246,',
-        'rgba(91,184,232,'
+        'rgba(200,169,110,',
+        'rgba(154,122,53,',
+        'rgba(30,58,95,',
+        'rgba(200,169,110,'
       ];
 
       function Particle() { this.init(); }
@@ -2131,12 +2304,29 @@
     ───────────────────────────────────── */
     gsap.registerPlugin(ScrollTrigger);
 
+    /* Respect users who prefer reduced motion — reveal everything statically */
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealSelectors = '.hero-eyebrow, .hero-word-top, #hero-logo-wrap, .hero-word-bottom, .hero-divider, .hero-sub, .hero-ctas, #hero-scroll-hint, .will-reveal, .axyz-pill, .en2u-card, .venture-card, .section-heading, .s-card-1, .s-card-2, .s-card-3';
+    if (reduceMotion) {
+      document.querySelectorAll(revealSelectors).forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.filter = 'none';
+      });
+    }
+
+    if (!reduceMotion) {
     /* ── Hero entrance ── */
     const heroTl = gsap.timeline({ delay: 0.15 });
     heroTl
+      .fromTo('.hero-eyebrow',
+        { opacity: 0, y: -12 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
+      )
       .fromTo('.hero-word-top',
         { opacity: 0, y: -30 },
-        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }
+        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
+        '-=0.2'
       )
       .fromTo('#hero-logo-wrap',
         { opacity: 0, scale: 0.92, filter: 'blur(8px)' },
@@ -2147,6 +2337,16 @@
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
         '-=0.4'
+      )
+      .fromTo('.hero-divider',
+        { opacity: 0, scaleX: 0 },
+        { opacity: 1, scaleX: 1, duration: 0.5, ease: 'power3.out' },
+        '-=0.3'
+      )
+      .fromTo('.hero-sub',
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+        '-=0.25'
       )
       .fromTo('.hero-ctas',
         { opacity: 0, y: 18 },
@@ -2165,8 +2365,9 @@
       ease: 'none',
       scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
     });
+    } /* end !reduceMotion (hero) */
 
-    /* ── About stats count-up ── */
+    /* ── About stats count-up (runs regardless of motion preference) ── */
     function runCounter(el) {
       const target   = parseFloat(el.dataset.count);
       const suffix   = el.dataset.suffix || '';
@@ -2197,6 +2398,7 @@
       counterObserver.observe(el);
     });
 
+    if (!reduceMotion) {
     /* ── Generic reveal animations for .will-reveal elements ── */
     gsap.utils.toArray('.will-reveal').forEach((el, i) => {
       gsap.fromTo(el,
@@ -2306,6 +2508,58 @@
       const el = document.querySelector(id);
       if (el) rumble(el);
     });
+    } /* end !reduceMotion (scroll animations) */
+
+    /* ─────────────────────────────────────
+       CONTACT FORM — submit handling + states
+    ───────────────────────────────────── */
+    (function() {
+      const form = document.getElementById('contact-form');
+      if (!form) return;
+      const btn = form.querySelector('.contact-submit');
+      const status = document.getElementById('contact-status');
+      const successPanel = document.getElementById('contact-success');
+      const FORMSPREE_ID = form.getAttribute('action') || '';
+      const btnLabel = btn ? btn.textContent : 'Send Message';
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (status) { status.className = 'contact-status'; status.textContent = ''; }
+
+        // If no real Formspree endpoint is configured, fall back to a mailto draft.
+        if (!FORMSPREE_ID || FORMSPREE_ID.includes('YOUR_FORM_ID')) {
+          const name = encodeURIComponent(form.querySelector('#cf-name').value || '');
+          const email = encodeURIComponent(form.querySelector('#cf-email').value || '');
+          const msg = encodeURIComponent(form.querySelector('#cf-msg').value || '');
+          window.location.href =
+            `mailto:contact@brillick.com?subject=Inquiry from ${name}` +
+            `&body=From: ${name} (${email})%0D%0A%0D%0A${msg}`;
+          return;
+        }
+
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+        try {
+          const res = await fetch(FORMSPREE_ID, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' }
+          });
+          if (res.ok) {
+            form.classList.add('sent');
+            if (successPanel) successPanel.classList.add('show');
+          } else {
+            throw new Error('Bad response');
+          }
+        } catch (err) {
+          if (status) {
+            status.className = 'contact-status error';
+            status.textContent = 'Something went wrong. Please email us directly at contact@brillick.com.';
+          }
+        } finally {
+          if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
+        }
+      });
+    })();
 
   </script>
 </body>
